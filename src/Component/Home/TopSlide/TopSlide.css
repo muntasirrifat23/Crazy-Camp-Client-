@@ -1,0 +1,14 @@
+.carousel-item {
+    position: relative;
+  }
+  
+  .carousel-text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 5px;
+    margin-bottom: 23px;
+  }

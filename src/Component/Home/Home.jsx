@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import Login from '../Login/Login';
-import Register from '../Register/Register';
+import { useState } from 'react';
 import './Home.css'
+import { FaToggleOn } from 'react-icons/fa';
+import TopSlide from './TopSlide/TopSlide';
+
 const Home = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -10,12 +11,19 @@ const Home = () => {
     };
     return (
         <div>
-           <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
-      <button onClick={toggleMode} className='mt-20'>Toggle Mode</button>
-      <div className="content">
-        {/* Place your website content here */}
-      </div>
-    </div>
+            <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
+                <button onClick={toggleMode} className='mt-20 text-4xl'>
+                    <div>
+                    <div className='mt-10 ml-5 flex'><FaToggleOn></FaToggleOn>
+                    </div>
+                    </div>
+                    
+                     </button>
+                <div className="content">
+                    {/*  content  */}
+                    <TopSlide></TopSlide>
+                </div>
+            </div>
         </div>
     );
 };
