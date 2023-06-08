@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../../public/logo.jpeg'
+
 
 const Navbar = () => {
 
     // const { user, logOut } = useContext(AuthContest);
     // const [carts] =UseCart();
-  
+
     // const handleOut = () => {
     //   logOut()
     //     .then(result =>
@@ -17,7 +19,7 @@ const Navbar = () => {
     // }
 
     const navOption = <>
-        <Link className='ml-3' to='/'>Home</Link>
+        <Link className='ml-3 mt-2' to='/'>Home</Link>
         <Link className='ml-3 mt-2' to='/instructors'>Instructors</Link>
         <Link className='ml-3 mt-2' to='/classes'>Classes</Link>
         <Link className='ml-3 mt-2' to='/dashboard'>Dashboard</Link>
@@ -34,11 +36,17 @@ const Navbar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 font-semibold">
-                           {navOption}
+                            {navOption}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">Camp Crazy</a>
+
+                    {/* Logo name */}
+                    <div className='font-bold text-3xl ml-2' style={{ display: 'flex', alignItems: 'center' }}>
+                        <img src={logo} alt="Logo" style={{ width: '50px', marginRight: '10px' }} />
+                        Camp Crazy
+                    </div>
                 </div>
+
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-xl">
                         {navOption}
