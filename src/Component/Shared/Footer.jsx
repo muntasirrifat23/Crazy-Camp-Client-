@@ -3,7 +3,7 @@ import logo from '../../../public/logo.jpeg'
 
 const Footer = () => {
     return (
-        <div>
+        <div className=''>
             <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
              <>
              <div className='font-bold text-3xl ml-2' style={{ display: 'flex', alignItems: 'center' }}>
