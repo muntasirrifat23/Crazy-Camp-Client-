@@ -4,6 +4,8 @@ import { FaToggleOn } from 'react-icons/fa';
 import TopSlide from './TopSlide/TopSlide';
 import Popular from './Popular/Popular';
 import { Helmet } from 'react-helmet-async';
+import PopularClass from './PopularClass/PopularClass';
+import PopularInstructor from './PopularInstructor/PopularInstructor';
 
 const Home = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -28,6 +30,8 @@ const Home = () => {
                     {/*  content  */}
                     <TopSlide></TopSlide>
                     <Popular></Popular>
+                    <PopularClass></PopularClass>
+                    <PopularInstructor></PopularInstructor>
                 </div>
             </div>
         </div>
