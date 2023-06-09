@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
@@ -10,7 +11,10 @@ const Register = () => {
 
 
     return (
-        <div >
+        <div>
+            <Helmet>
+                <title>Crazy Camp | Registration</title>
+            </Helmet>
             <div>
                 <div className="hero min-h-screen bg-base-20 w-full">
                     <div className="hero-content flex-col">
