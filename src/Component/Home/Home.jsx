@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './Home.css'
 import { FaToggleOn } from 'react-icons/fa';
 import TopSlide from './TopSlide/TopSlide';
+import Popular from './Popular/Popular';
 
 const Home = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -22,6 +23,7 @@ const Home = () => {
                 <div className="content">
                     {/*  content  */}
                     <TopSlide></TopSlide>
+                    <Popular></Popular>
                 </div>
             </div>
         </div>

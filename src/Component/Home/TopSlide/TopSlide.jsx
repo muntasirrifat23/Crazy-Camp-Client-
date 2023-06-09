@@ -16,14 +16,16 @@ const TopSlide = () => {
 
         <div className='mb-20 text-center'>
             <Carousel>
-            <div className="carousel-item">
+            <div className="carousel-item">   
                     <img src={top1} />
+                    <div>
                     <p className="carousel-text"><span className='font-bold text-2xl'>-- Football --</span> 
                     <p>Football is a popular sport played worldwide.</p>
                     <p>Message: Kick, pass, and score! Experience the thrill of football and showcase your skills on the field.</p>
                     </p>
-                    
+                    </div>       
                 </div>
+
                 <div>
                     <img src={top2} />
                     <p className="carousel-text"><span className='font-bold text-2xl'>-- Basketball --</span> 
