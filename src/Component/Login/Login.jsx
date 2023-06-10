@@ -10,55 +10,58 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const formRef = useRef(null);
-  const { signIn,googleSignIn } = useContext(AuthContest);
+  const { signIn, googleSignIn } = useContext(AuthContest);
+  const [error, setError] = useState('');
+
   const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
-      setShowPassword(!showPassword);
-    }; 
-    const toggleConfirmPasswordVisibility = () => {
-      setShowConfirmPassword(!showConfirmPassword);
-    };
+    setShowPassword(!showPassword);
+  };
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
 
-    const [error, setError] = useState('');
-    const location = useLocation();
-    const frm = location.state?.frm?.pathname || '/';
+  const location = useLocation();
+  const frm = location.state?.frm?.pathname || '/';
 
-    const formLogin = (event) => {
-        event.preventDefault();
-        setError('')
-        const from = event.target;
-        const email = from.email.value;
-        const password = from.password.value;
-        console.log(email, password);
+  const formLogin = (event) => {
+    event.preventDefault();
+    setError('')
+    const from = event.target;
+    const email = from.email.value;
+    const password = from.password.value;
+    console.log(email, password);
 
-        if (password.length < 6) {
-            setError('At least six character password');
-            return;
-        }
-        formRef.current.reset();
-        if (email, password) {
-            signIn(email, password)
-                .then(result => {
-                    const myUser = result.user;
-                    console.log(myUser);
-                    navigate(frm , { replace: true });
-                    setError('');
-                })
-                .catch(err => {
-                    console.log(err.message);
-                    setError(err.message);
-                });
-        }
-    };
-    // Google
-    const handleGoogle=()=>{
-      googleSignIn()
-      .then(res=>{
-          console.log(res.user);
-      })
-      .catch(err=>{
+    if (password.length < 6) {
+      setError('At least six character password and Password must have one special character and one uppercase letter');
+      return;
+    }
+
+    formRef.current.reset();
+    if (email, password) {
+      signIn(email, password)
+        .then(result => {
+          const myUser = result.user;
+          console.log(myUser);
+          navigate(frm, { replace: true });
+          setError('');
+        })
+        .catch(err => {
           console.log(err.message);
+          setError(err.message);
+        });
+    }
+  };
+  // Google
+  const handleGoogle = () => {
+    googleSignIn()
+      .then(res => {
+        console.log(res.user);
+        navigate(frm, { replace: true });
+      })
+      .catch(err => {
+        console.log(err.message);
       });
   };
   //   const formLogin = event => {
@@ -82,7 +85,7 @@ const Login = () => {
   //         })
   // }
 
- const { register, formState: { errors } } = useForm();
+  const { register, formState: { errors } } = useForm();
 
 
   return (
@@ -112,45 +115,45 @@ const Login = () => {
 
                 {/* Password */}
                 <div className="form-control">
-  <label className="label">
-    <span className="label-text">Password</span>
-  </label>
-  <div className="relative">
-    <input name="password"
-      type={showPassword ? "text" : "password"}
-      {...register("password", {
-        required: true,
-        minLength: 6,
-        maxLength: 20,
-        pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-6])/
-      })}
-      placeholder="Enter Password"
-      className="input input-bordered pr-12"
-    />
-    <button
-      type="button"
-      className="bg-black text-center text-white font-bold btn btn-primary btn-circle"
-      onClick={togglePasswordVisibility}
-    >
-      {showPassword ? (
-        <FaEye/>
-      ) : (
-        <FaEyeSlash/>
-      )}
-    </button>
-  </div>
-  {errors.password?.type === "required" && (
-    <p className="text-red-600">Password is required</p>
-  )}
-  {errors.password?.type === "minLength" && (
-    <p className="text-red-600">At least six characters password needed</p>
-  )}
-  {errors.password?.type === "pattern" && (
-    <p className="text-red-600">
-      Password must have one special character and one uppercase letter
-    </p>
-  )}
-</div>
+                  <label className="label">
+                    <span className="label-text">Password</span>
+                  </label>
+                  <div className="relative">
+                    <input name="password"
+                      type={showPassword ? "text" : "password"}
+                      {...register("password", {
+                        required: true,
+                        minLength: 6,
+                        maxLength: 20,
+                        pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-6])/
+                      })}
+                      placeholder="Enter Password"
+                      className="input input-bordered pr-12"
+                    />
+                    <button
+                      type="button"
+                      className="bg-black text-center text-white font-bold btn btn-primary btn-circle"
+                      onClick={togglePasswordVisibility}
+                    >
+                      {showPassword ? (
+                        <FaEye />
+                      ) : (
+                        <FaEyeSlash />
+                      )}
+                    </button>
+                  </div>
+                  {error.password?.type === "required" && (
+                    <p className="text-red-600">Password is required</p>
+                  )}
+                  {error.password?.type === "minLength" && (
+                    <p className="text-red-600">At least six characters password needed</p>
+                  )}
+                  {error.password?.type === "pattern" && (
+                    <p className="text-red-600">
+                      Password must have one special character and one uppercase letter
+                    </p>
+                  )}
+                </div>
                 {/* Button */}
                 <div className="form-control mt-2">
                   <input className="btn btn-primary text-white" type="submit" value="Login" />
@@ -159,12 +162,14 @@ const Login = () => {
                 <p className="text-blue-600 mt-3">Haven't Account? <Link to='/register' >Do Registration</Link></p>
 
                 {/* Google login */}
-                <div>
+                <div className="flex flex-col w-full border-opacity-50">
                   <div className="divider">OR</div>
-                  <div className="text-center">
-                    <div className=" bg-orange-600  text-center text-white font-bold text-2xl btn btn-circle">G</div>
+                  <div className=' text-center'>
+                    <button onClick={handleGoogle} className="btn btn-warning btn-circle mb-2 bg-orange-600 text-white"> G </button>
                   </div>
                 </div>
+
+                <p className='text-red-700'>{error}</p>
 
               </div>
             </div>
