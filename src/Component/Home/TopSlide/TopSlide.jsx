@@ -7,8 +7,9 @@ import top4 from '../../../../public/TopSlider/top4.webp'
 import top5 from '../../../../public/TopSlider/top5.jpg'
 import top6 from '../../../../public/TopSlider/top6.jpeg'
 
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from 'react-responsive-carousel';
+
 
 const TopSlide = () => {
     return (

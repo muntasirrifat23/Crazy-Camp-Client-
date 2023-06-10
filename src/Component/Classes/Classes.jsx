@@ -1,9 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Classes = () => {
     return (
         <div>
-            Classes
+             <Helmet>
+                <title>Crazy Camp | Classes</title>
+            </Helmet>
         </div>
     );
 };
