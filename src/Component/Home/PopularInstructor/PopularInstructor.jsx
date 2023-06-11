@@ -14,7 +14,7 @@ const PopularInstructor = () => {
 
     }, [])
     return (
-        <div>
+        <div className='text-black'>
             <div className='text-center mx-auto my-10 border-b-4 border-black md:w-3/12 sm:w-5/12 lg:w-3/12 mt-15 uppercase text-4xl text-red-800 font-bold border-dotted'>
                 Popular Instructor
             </div>

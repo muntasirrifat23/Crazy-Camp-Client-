@@ -21,7 +21,7 @@ const Classes = () => {
                 <div className=''>All classess</div>
                 </div>
 
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex justify-center mt-10'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex justify-center mt-10 mb-10'>
 
                     {classes && classes.length > 0 ? (
                         classes.map(classItem => (

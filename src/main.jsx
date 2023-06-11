@@ -15,6 +15,9 @@ import AuthProvider from './Component/AuthProvider/AuthProvider.jsx';
 import Instructor from './Component/Instructor/Instructor.jsx';
 import Classes from './Component/Classes/Classes.jsx';
 import Dashboard from './Dashboard/Dashboard.jsx';
+import EnrolledClass from './Dashboard/Student/EnrolledClass';
+import SelectedClass from './Dashboard/Student/SelectedClass';
+import PaymentHistory from './Dashboard/Student/PaymentHistory';
 
 const router = createBrowserRouter([
   {
@@ -48,7 +51,16 @@ const router = createBrowserRouter([
     element:<Dashboard></Dashboard>,
     children:[
       {
-
+        path:'/dashboard/enrollClass',
+        element:<EnrolledClass></EnrolledClass>
+      },
+      {
+        path:'/dashboard/selectedClass',
+        element:<SelectedClass></SelectedClass>
+      },
+      {
+        path:'/dashboard/history',
+        element:<PaymentHistory></PaymentHistory>
       }
     ]
   },
