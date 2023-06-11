@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -15,6 +14,7 @@ import NotFound from './Component/NotFound/NotFound.jsx';
 import AuthProvider from './Component/AuthProvider/AuthProvider.jsx';
 import Instructor from './Component/Instructor/Instructor.jsx';
 import Classes from './Component/Classes/Classes.jsx';
+import Dashboard from './Dashboard/Dashboard.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +41,15 @@ const router = createBrowserRouter([
         path: '/classes',
         element: <Classes></Classes>
       },
+    ]
+  },
+  {
+    path:'/dashboard',
+    element:<Dashboard></Dashboard>,
+    children:[
+      {
+
+      }
     ]
   },
   {
