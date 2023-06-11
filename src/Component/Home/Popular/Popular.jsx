@@ -24,7 +24,10 @@ const Popular = () => {
     }, []);
     return (
         <div>
-            <div className='mb-8 mx-auto ml-20 text-center '>
+             <div className='text-center mx-auto my-10 border-b-4 border-black md:w-3/12 sm:w-5/12 lg:w-2/12 mt-15 uppercase text-4xl text-red-800 font-bold border-dotted'>
+                Extra Section
+            </div>
+            <div className='mb-8 mx-auto ml-20 text-center mt-10'>
                 <div className='text-green-800 font-semibold text-xl flex justify-center text-center '>
                     <div className='mr-2'>
                         <h1 data-aos="fade-up">

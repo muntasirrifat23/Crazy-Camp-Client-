@@ -29,9 +29,9 @@ const Home = () => {
                 <div className="content">
                     {/*  content  */}
                     <TopSlide></TopSlide>
-                    <Popular></Popular>
                     <PopularClass></PopularClass>
                     <PopularInstructor></PopularInstructor>
+                    <Popular></Popular>
                 </div>
             </div>
         </div>
