@@ -1,0 +1,63 @@
+import React, { useContext } from 'react';
+import { AuthContest } from '../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
+import UseEnroll from '../Main/UseEnroll';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+const ClassesItem = ({classItem}) => {
+    const { name, image, available,price, sportsName,_id } = classItem;
+    const {user} = useContext(AuthContest)
+    const location =useLocation();
+    const navigate= useNavigate();
+    // const[, refetch]= UseEnroll();
+
+    const handleEnroll =(classItem)=>{
+        console.log(classItem);
+        if(user && user.email){
+            const enrollItem ={enrollID: _id, image,sportsName,name,price,available, email:user.email }
+            fetch('http://localhost:5000/enroll',{
+                method:'POST',
+                headers:{
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(enrollItem),
+            })
+            .then(res=>res.json())
+            .then(data=> {
+                if(data.insertedId){
+                    // refetch();
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Your Class Enroll',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
+            })
+        }
+    }
+    return (
+        <div>
+            <div className="flex justify-center items-center">
+                                <div className="card w-96 bg-base-100 shadow-xl">
+                                    <figure className="px-10 pt-10">
+                                        <img src={image} alt="Shoes" className="rounded-xl" />
+                                    </figure>
+                                    <div className="card-body font-semibold">
+                                        <h2 className="card-title font-bold text-2xl">Sports: {sportsName}</h2>
+                                        <p>Instructor: {name}</p>
+                                        <p>Sit Available: {available}</p>
+                                        <p>Price: ${price}</p>
+
+                                        <button onClick={()=>handleEnroll(classItem)} className='btn btn-primary w-1/3 bg-black font-bold '> Enroll</button>
+                                        <div className="card-actions">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        </div>
+    );
+};
+
+export default ClassesItem;

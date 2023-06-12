@@ -22,7 +22,7 @@ const Navbar = () => {
             <Link className='ml-3 mt-2' to='/'>Home</Link>
         <Link className='ml-3 mt-2' to='/instructors'>Instructors</Link>
         <Link className='ml-3 mt-2' to='/classes'>Classes</Link>
-        <Link className='ml-3 mt-2' to='/dashboard'>Dashboard</Link>
+        <Link className='ml-3 mt-2' to='/dashboard'> Dashboard</Link>
         <Link className='ml-3 mt-2' to='/login'>Login</Link>
         <Link className='ml-3 mt-2' to='/register'>Registration</Link>
         </> :

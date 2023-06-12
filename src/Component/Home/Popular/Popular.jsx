@@ -7,7 +7,7 @@ import ex3 from '../../../../public/Extra/ex3.jpeg'
 import ex4 from '../../../../public/Extra/ex4.jpeg'
 import ex5 from '../../../../public/Extra/ex5.jpeg'
 import ex6 from '../../../../public/Extra/ex6.jpeg'
-// import ex1 from '../../../../public/Extra/ex.1.jpeg'
+import extra from '../../../../public/extra.webp'
 
 
 const Popular = () => {
@@ -63,6 +63,19 @@ const Popular = () => {
                     </div>
                 </div>
             </div>
+
+
+            {/* Extra */}
+            <div className="hero  bg-base-200">
+  <div className="hero-content flex-col lg:flex-row">
+    <img src={extra} className="max-w-sm rounded-lg shadow-2xl" />
+    <div>
+      <h1 className="text-5xl font-bold">Benefit of sports</h1>
+      <p className="py-6">Clearly, sports can help you reach your fitness goals and maintain a healthy weight. However, they also encourage healthy decision-making such as not smoking and not drinking. Sports also have hidden health benefits such as lowering the chance of osteoporosis or breast cancer later in life.
+</p>
+    </div>
+  </div>
+</div>
         </div>
     );
 };

@@ -51,6 +51,8 @@ const Login = () => {
           console.log(err.message);
           setError(err.message);
         });
+        navigate(frm, { replace: true });
+
     }
   };
   // Google
