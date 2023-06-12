@@ -4,7 +4,7 @@ import PopularItem from './PopularItem';
 const PopularInstructor = () => {
     const [popularIns, setPopularInstructor] = useState();
     useEffect(() => {
-        fetch('http://localhost:5000/instructor')
+        fetch('https://assignment-12-server-muntasirrifat23.vercel.app/instructor')
             .then(res => res.json()) 
             .then(data => {
                 const polularItem = data.filter(items =>

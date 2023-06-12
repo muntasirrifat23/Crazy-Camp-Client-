@@ -6,7 +6,7 @@ const MyClass = () => {
   const [popularClass, setPopularClass] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/classes')
+    fetch('https://assignment-12-server-muntasirrifat23.vercel.app/classes')
       .then(res => res.json())
       .then(data => {
         const classItem = data.filter(items => items.category === 'popular');
@@ -15,7 +15,7 @@ const MyClass = () => {
   }, []);
 
   const handleDelete = (item) => {
-    fetch(`http://localhost:5000/classes/${item._id}`, {
+    fetch(`https://assignment-12-server-muntasirrifat23.vercel.app/classes/${item._id}`, {
       method: 'DELETE'
     })
       .then(res => res.json())
@@ -30,7 +30,7 @@ const MyClass = () => {
   return (
     <div className="w-full">
       <Helmet>
-        <title>Crazy Camp | MyClass</title>
+        <title>Crazy Camp | My Class</title>
       </Helmet>
 
       <div className="overflow-x-auto mt-10 b-black-10 border-2 border-slate">

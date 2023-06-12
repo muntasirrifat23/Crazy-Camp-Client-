@@ -31,7 +31,7 @@ const togglePasswordVisibility = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const saveLoggedUser = {email: data.email,name:data.name}
-                        fetch('http://localhost:5000/user', {
+                        fetch('https://assignment-12-server-muntasirrifat23.vercel.app/user', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

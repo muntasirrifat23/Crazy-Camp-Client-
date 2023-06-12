@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 const Instructor = () => {
     const [instructor, setInstructor] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/instructor')
+        fetch('https://assignment-12-server-muntasirrifat23.vercel.app/instructor')
             .then(res => res.json())
             .then(data => {
                 setInstructor(data);

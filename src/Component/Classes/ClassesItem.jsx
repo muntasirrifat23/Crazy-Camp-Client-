@@ -25,7 +25,7 @@ const ClassesItem = ({classItem}) => {
             email: user.email
           };
       
-          fetch('http://localhost:5000/enroll', {
+          fetch('https://assignment-12-server-muntasirrifat23.vercel.app/enroll', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

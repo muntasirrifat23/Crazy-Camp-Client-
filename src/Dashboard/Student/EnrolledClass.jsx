@@ -3,6 +3,7 @@ import UseEnroll from '../../Component/Main/UseEnroll';
 import { Helmet } from 'react-helmet-async';
 import { FaTrash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const EnrolledClass = () => {
     const [enrolled, refetch] = UseEnroll();
@@ -19,7 +20,7 @@ const EnrolledClass = () => {
           })
           .then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/enroll/${items._id}`,{
+                fetch(`https://assignment-12-server-muntasirrifat23.vercel.app/enroll/${items._id}`,{
                     method:'DELETE',
                     headers: {
                         'Content-Type': 'application/json'
@@ -51,7 +52,9 @@ const EnrolledClass = () => {
             <div className='flex font-semibold text-2xl mt-10 justify-between items center'>
                 <div>Total Select Class: {enrolled.length} </div>
                 <div >Total Price: ${total} </div>
+                <Link to='/dashboard/payment'> 
                 <button className="btn btn-error btn-sm">Pay</button>
+                </Link>
             </div>
 
 {/* Table */}

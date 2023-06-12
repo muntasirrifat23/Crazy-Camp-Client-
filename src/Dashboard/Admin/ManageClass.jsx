@@ -17,7 +17,7 @@ const ManageClass = () => {
           })
           .then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/enroll/${items._id}`,{
+                fetch(`https://assignment-12-server-muntasirrifat23.vercel.app/enroll/${items._id}`,{
                     method:'DELETE',
                     headers: {
                         'Content-Type': 'application/json'

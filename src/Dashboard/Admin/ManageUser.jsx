@@ -6,13 +6,13 @@ import UseEnroll from '../../Component/Main/UseEnroll';
 
 const ManageUser = () => {
     const { data: user=[], refetch } = useQuery(['user'], async () => {
-        const res = await fetch('http://localhost:5000/user');
+        const res = await fetch('https://assignment-12-server-muntasirrifat23.vercel.app/user');
         return res.json();
     });
 
     // Admin
     const handleAdmin = (item) => {
-        fetch(`http://localhost:5000/user/admin/${item._id}`, {
+        fetch(`https://assignment-12-server-muntasirrifat23.vercel.app/user/admin/${item._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -30,7 +30,7 @@ const ManageUser = () => {
             });
     };
     const handleInstructor = (item) => {
-        fetch(`http://localhost:5000/user/instructor/${item._id}`, {
+        fetch(`https://assignment-12-server-muntasirrifat23.vercel.app/user/instructor/${item._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -61,8 +61,8 @@ const ManageUser = () => {
     //         .then((result) => {
     //             if (result.isConfirmed) {
     //                 const url = item.role === 'admin'
-    //                     ? `http://localhost:5000/admin/${item._id}`
-    //                     : `http://localhost:5000/instructor/${item._id}`;
+    //                     ? `https://assignment-12-server-muntasirrifat23.vercel.app/admin/${item._id}`
+    //                     : `https://assignment-12-server-muntasirrifat23.vercel.app/instructor/${item._id}`;
 
     //                 fetch(url, {
     //                     method: 'DELETE',

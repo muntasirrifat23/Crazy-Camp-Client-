@@ -1,8 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const AddClass = () => {
     return (
         <div>
+           <Helmet>
+                <title>Crazy Camp | Add Class</title>
+            </Helmet>
             
       <div className="card-body bg-red-100 rounded-xl mt-20">
 
