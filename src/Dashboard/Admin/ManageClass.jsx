@@ -1,13 +1,11 @@
 import React from 'react';
+import { FaCheck, FaTimesCircle } from 'react-icons/fa';
 import UseEnroll from '../../Component/Main/UseEnroll';
 import { Helmet } from 'react-helmet-async';
-import { FaTrash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 
-const EnrolledClass = () => {
+const ManageClass = () => {
     const [enrolled, refetch] = UseEnroll();
-    const total = enrolled.reduce((sum, item) => item.price + sum, 0)
-
     const handleDelete=(items)=>{
         Swal.fire({
             title: 'Delete Selected Class?',
@@ -40,22 +38,19 @@ const EnrolledClass = () => {
             }
           })
     }
-
-
     return (
-        <div className='w-full'>
+        <div>
+              <div className='w-full'>
             <Helmet>
-                <title>Crazy Camp | Enrolled Class</title>
+                <title>Crazy Camp | Manage User</title>
             </Helmet>
+            <div className='text-center mt-10 font-bold text-5xl underline'>Manage User</div>
 
-            <div className='flex font-semibold text-2xl mt-10 justify-between items center'>
-                <div>Total Select Class: {enrolled.length} </div>
-                <div >Total Price: ${total} </div>
-                <button className="btn btn-error btn-sm">Pay</button>
-            </div>
+          
 
 {/* Table */}
             <div className="overflow-x-auto mt-10 b-black-10 border-2 border-slate">
+                
   <table className="table b-black-10">
     {/* head */}
     <thead className='bg-slate-200 text-black'>
@@ -66,7 +61,7 @@ const EnrolledClass = () => {
         <th>Instructor Name</th>
         <th>Available Sit</th>
         <th>Price</th>
-        <th> Action</th>
+        <th> Status</th>
       </tr>
     </thead>
 
@@ -99,8 +94,21 @@ const EnrolledClass = () => {
                 <td>
                 <div className="font-bold text-center">${items.price}</div>
                 </td>
-                <th>
-                  <button onClick={()=>handleDelete(items)} className="btn btn-primary border-0 bg-red-800 text-white text-center"><FaTrash></FaTrash></button>
+                <th className='w-full flex'>
+                  
+                  <div className='flex flex-col w-full'>
+                    <div>
+                    <button className="btn btn-primary border-0 bg-blue-800 text-white text-center">Pending</button>
+                    </div>
+
+                    <div>
+                    <button className="btn btn-primary border-0 bg-green-800 p-2 text-white text-center mt-2"><FaCheck></FaCheck>Approved</button>
+                    </div>
+
+                    <div>
+                    <button onClick={()=>handleDelete(items)} className="btn btn-primary border-0 bg-red-800 text-white text-center mt-2"><FaTimesCircle></FaTimesCircle> Deny</button>
+                    </div>
+                  </div>
                 </th>
               </tr>)
         }
@@ -111,7 +119,8 @@ const EnrolledClass = () => {
 </div>
 
         </div>
+        </div>
     );
 };
 
-export default EnrolledClass;
+export default ManageClass;

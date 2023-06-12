@@ -20,11 +20,12 @@ const Navbar = () => {
     const navOption = <>
         {user ? <>
             <Link className='ml-3 mt-2' to='/'>Home</Link>
-        <Link className='ml-3 mt-2' to='/instructors'>Instructors</Link>
-        <Link className='ml-3 mt-2' to='/classes'>Classes</Link>
-        <Link className='ml-3 mt-2' to='/dashboard'> Dashboard</Link>
-        <Link className='ml-3 mt-2' to='/login'>Login</Link>
-        <Link className='ml-3 mt-2' to='/register'>Registration</Link>
+            <Link className='ml-3 mt-2' to='/instructors'>Instructors</Link>
+            <Link className='ml-3 mt-2' to='/classes'>Classes</Link>
+            <Link className='ml-3 mt-2' to='/dashboard'> Dashboard</Link>
+            
+            <Link className='ml-3 mt-2' to='/login'>Login</Link>
+            <Link className='ml-3 mt-2' to='/register'>Registration</Link>
         </> :
             <>
                 <Link className='ml-3 mt-2' to='/'>Home</Link>
@@ -68,12 +69,12 @@ const Navbar = () => {
                 <div className="navbar-end">
                     {
                         user ?
-                            (<button onClick={handlelogOut} className='bg-black p-3 rounded-xl font-semibold border border-indigo-600'> <div  className='flex justify-center items-center'>
+                            (<button onClick={handlelogOut} className='bg-black p-3 rounded-xl font-semibold border border-indigo-600'> <div className='flex justify-center items-center'>
                                 <div>
-                            <img className='rounded-full w-1/2 justify-end' src={user?.photoURL} />
+                                    <img className='rounded-full w-1/2 justify-end' src={user?.photoURL} />
+                                </div>
+                                <div className='p-3'>Log Out</div>
                             </div>
-                            <div className='p-3'>Log Out</div>
-                                </div>  
                             </button>) :
                             (<Link to='/login' className='bg-white p-3 rounded-xl font-semibold border border-indigo-600 text-red-600'>Login</Link>)
                     }

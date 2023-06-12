@@ -24,6 +24,10 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import ManageClass from './Dashboard/Admin/ManageClass';
+import ManageUser from './Dashboard/Admin/ManageUser';
+import AddClass from './Dashboard/Instructor/AddClass';
+import MyClass from './Dashboard/Instructor/MyClass';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -68,7 +72,23 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/history',
         element: <PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
-      }
+      },
+      {
+        path: '/dashboard/manageClass',
+        element: <PrivateRoute><ManageClass></ManageClass></PrivateRoute>
+      },
+      {
+        path: '/dashboard/manageUser',
+        element: <PrivateRoute><ManageUser></ManageUser></PrivateRoute>
+      },
+      {
+        path: '/dashboard/addClass',
+        element: <AddClass></AddClass>
+      },
+      {
+        path: '/dashboard/myClass',
+        element: <MyClass></MyClass>
+      },
     ]
   },
   {
