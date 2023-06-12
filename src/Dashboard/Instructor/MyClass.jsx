@@ -30,7 +30,7 @@ const MyClass = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full bd-white text-black">
       <Helmet>
         <title>Crazy Camp | My Class</title>
       </Helmet>
