@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, Outlet } from 'react-router-dom';
 import { FaBookmark, FaChalkboardTeacher, FaHome, FaRegBookmark, FaShoppingCart, FaWallet } from 'react-icons/fa';
+// import UserJHome from './UserJHome';
 
 const Dashboard = () => {
     // To do load data
@@ -21,7 +22,8 @@ const Dashboard = () => {
 
                 </div>
                 <div className="drawer-side text-black bg-white ">
-                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+                    <label htmlFor="my-drawer-2" className="drawer-overlay">
+                    </label>
                     <ul className="menu p-4 w-80 h-full bg-base-100 text-base-content bg-slate-300">
                         {/* Sidebar content here */}
 
