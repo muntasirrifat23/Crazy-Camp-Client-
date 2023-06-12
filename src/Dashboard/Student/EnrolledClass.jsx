@@ -49,12 +49,10 @@ const EnrolledClass = () => {
                 <title>Crazy Camp | Enrolled Class</title>
             </Helmet>
 
-            <div className='flex font-semibold text-2xl mt-10 justify-between items center'>
+            <div className='flex font-semibold text-2xl mt-10 justify-evenly items center'>
                 <div>Total Select Class: {enrolled.length} </div>
                 <div >Total Price: ${total} </div>
-                <Link to='/dashboard/payment'> 
-                <button className="btn btn-error btn-sm">Pay</button>
-                </Link>
+                
             </div>
 
 {/* Table */}
@@ -70,6 +68,7 @@ const EnrolledClass = () => {
         <th>Available Sit</th>
         <th>Price</th>
         <th> Action</th>
+        <th> Payment</th>
       </tr>
     </thead>
 
@@ -105,6 +104,11 @@ const EnrolledClass = () => {
                 <th>
                   <button onClick={()=>handleDelete(items)} className="btn btn-primary border-0 bg-red-800 text-white text-center"><FaTrash></FaTrash></button>
                 </th>
+                <td>
+                <Link to='/dashboard/payment'> 
+                <button className="btn btn-error btn-sm">Pay</button>
+                </Link>
+                </td>
               </tr>)
         }
      

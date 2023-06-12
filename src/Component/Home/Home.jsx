@@ -14,7 +14,7 @@ const Home = () => {
         setIsDarkMode(!isDarkMode);
     };
     return (
-        <div className='text-black'>
+        <div className='text-black w-full'>
             <Helmet>
                 <title>Crazy Camp | Home</title>
             </Helmet>
