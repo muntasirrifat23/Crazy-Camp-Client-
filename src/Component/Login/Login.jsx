@@ -40,7 +40,7 @@ const Login = () => {
 
     formRef.current.reset();
     if (email, password) {
-      signIn(email, password)
+      signIn(email, password) 
         .then(result => {
           const myUser = result.user;
           console.log(myUser);
@@ -59,12 +59,27 @@ const Login = () => {
   const handleGoogle = () => {
     googleSignIn()
       .then(res => {
-        console.log(res.user);
-        navigate(frm, { replace: true });
+        const loggedUser= res.user;
+        console.log(loggedUser);
+
+
+        const saveLoggedUser = {email: loggedUser.email,name:loggedUser.displayName}
+        fetch('http://localhost:5000/user', {
+          method: 'POST',
+          headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify(saveLoggedUser)
       })
-      .catch(err => {
-        console.log(err.message);
-      });
+     // formRef.current.reset();  
+
+          .then(res => res.json())
+          .then(data => {
+              if (data.insertedId) {
+                navigate(frm, { replace: true });
+                }
+              })
+      })
   };
   //   const formLogin = event => {
   //     event.preventDefault();

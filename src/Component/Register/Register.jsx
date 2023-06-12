@@ -31,7 +31,7 @@ const togglePasswordVisibility = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const saveLoggedUser = {email: data.email,name:data.name}
-                        fetch('http://localhost:5000/users', {
+                        fetch('http://localhost:5000/user', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
