@@ -7,7 +7,7 @@ const PopularItem = ({ popular }) => {
 
 
       <div className="flex justify-center items-center ">
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card w-96 bg-base-100 shadow-xl text-black bg-white">
           <figure className="px-10 pt-10">
             <img src={image} alt="Shoes" className="rounded-xl" />
           </figure>

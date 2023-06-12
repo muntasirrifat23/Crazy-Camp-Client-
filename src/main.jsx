@@ -20,6 +20,12 @@ import SelectedClass from './Dashboard/Student/SelectedClass';
 import PaymentHistory from './Dashboard/Student/PaymentHistory';
 import PrivateRoute from './Component/AuthProvider/PrivateRoute';
 
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+const queryClient = new QueryClient()
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,7 +43,7 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register></Register>
       },
-      { 
+      {
         path: '/instructors',
         element: <Instructor></Instructor>
       },
@@ -48,20 +54,20 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path:'/dashboard',
-    element:<Dashboard></Dashboard>,
-    children:[
+    path: '/dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
       {
-        path:'/dashboard/enrollClass',
-        element:<PrivateRoute><EnrolledClass></EnrolledClass> </PrivateRoute> 
+        path: '/dashboard/enrollClass',
+        element: <PrivateRoute><EnrolledClass></EnrolledClass> </PrivateRoute>
       },
       {
-        path:'/dashboard/selectedClass',
-        element:<PrivateRoute><SelectedClass></SelectedClass></PrivateRoute>
+        path: '/dashboard/selectedClass',
+        element: <PrivateRoute><SelectedClass></SelectedClass></PrivateRoute>
       },
       {
-        path:'/dashboard/history',
-        element:<PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
+        path: '/dashboard/history',
+        element: <PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
       }
     ]
   },
@@ -76,7 +82,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <AuthProvider>
 
       <HelmetProvider>
-        <RouterProvider router={router} />
+
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+
       </HelmetProvider>
 
     </AuthProvider>

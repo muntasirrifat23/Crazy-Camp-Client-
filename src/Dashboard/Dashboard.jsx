@@ -6,25 +6,25 @@ import { FaBookmark, FaChalkboardTeacher, FaHome, FaRegBookmark, FaShoppingCart,
 const Dashboard = () => {
     // const isAdmin = true;
     return (
-        <div>
+        <div className='text-black bg-white'>
             <Helmet>
                 <title>Crazy Camp | Dashboard</title>
             </Helmet>
-            <div className="drawer drawer-mobile lg:drawer-open">
+            <div className="drawer drawer-mobile lg:drawer-open text-black bg-white ">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" defaultChecked />
-                <div className="drawer-content flex flex-col items-center justify-center">
-
+                <div className="drawer-content flex flex-col items-center justify-center text-black bg-white">
 
                     <Outlet></Outlet>
-                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+
+                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden mt-40">Open drawer</label>
 
                 </div>
-                <div className="drawer-side">
+                <div className="drawer-side text-black bg-white ">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+                    <ul className="menu p-4 w-80 h-full bg-base-100 text-base-content bg-slate-300">
                         {/* Sidebar content here */}
 
-                        <li className='font-semibold mt-20 text-xl'>
+                        <li className='font-semibold mt-20 text-xl '>
                             <Link to='/dashboard/selectedClass' className='bg-black text-white'><FaBookmark></FaBookmark> My Selected Classes</Link>
                             <Link to='/dashboard/enrollClass' className='bg-black text-white mt-5'><FaShoppingCart></FaShoppingCart> My Enrolled Classes</Link>
                             <Link to='/dashboard/history' className='bg-black text-white mt-5'><FaWallet></FaWallet>Payment history</Link>

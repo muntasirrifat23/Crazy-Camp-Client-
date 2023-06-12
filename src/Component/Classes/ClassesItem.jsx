@@ -3,40 +3,57 @@ import { AuthContest } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import UseEnroll from '../Main/UseEnroll';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const ClassesItem = ({classItem}) => {
     const { name, image, available,price, sportsName,_id } = classItem;
     const {user} = useContext(AuthContest)
-    const location =useLocation();
-    const navigate= useNavigate();
-    // const[, refetch]= UseEnroll();
+    const[, refetch]= UseEnroll();
+    const [enrollmentStatus, setEnrollmentStatus] = useState('');
 
-    const handleEnroll =(classItem)=>{
-        console.log(classItem);
-        if(user && user.email){
-            const enrollItem ={enrollID: _id, image,sportsName,name,price,available, email:user.email }
-            fetch('http://localhost:5000/enroll',{
-                method:'POST',
-                headers:{
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(enrollItem),
-            })
-            .then(res=>res.json())
-            .then(data=> {
-                if(data.insertedId){
-                    // refetch();
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Your Class Enroll',
-                        showConfirmButton: false,
-                        timer: 1500
-                      })
-                }
-            })
+    const handleEnroll = (classItem) => {
+        if (user && user.email) {
+          const enrollItem = {
+            enrollID: _id,
+            image,
+            sportsName,
+            name,
+            price,
+            available,
+            email: user.email
+          };
+      
+          fetch('http://localhost:5000/enroll', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(enrollItem)
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.insertedId) {
+              setEnrollmentStatus('success');
+              refetch();
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Your Class Enroll',
+                showConfirmButton: false,
+                timer: 1500
+              });
+            } else {
+              setEnrollmentStatus('failure');
+            }
+          })
+          .catch(error => {
+            setEnrollmentStatus('failure');
+            console.error(error);
+          });
         }
-    }
+      };
+      
+   
     return (
         <div>
             <div className="flex justify-center items-center">

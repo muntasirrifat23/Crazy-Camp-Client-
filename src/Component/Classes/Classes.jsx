@@ -14,16 +14,16 @@ const Classes = () => {
 
     }, [])
     return (
-        <div>
+        <div className='text-black bg-white'>
             <Helmet>
                 <title>Crazy Camp | Classes</title>
             </Helmet>
-            <div>
+            <div className='text-black bg-white'>
                 <div className='text-center mx-auto  border-b-4 border-black md:w-3/12 sm:w-5/12 lg:w-3/12 uppercase text-4xl text-red-800 font-bold border-dotted mt-40'>
                     <div className=''>All classess</div>
                 </div>
 
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex justify-center mt-10 mb-10'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex justify-center mt-10 mb-10 text-black bg-white'>
 
                     {classes && classes.length > 0 ? (classes.map(classItem => (
                         <>

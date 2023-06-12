@@ -19,12 +19,12 @@ const PopularClass = () => {
                 </div>
 
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex justify-center mb-20'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex justify-center mb-20 '>
                 {popularClass && popularClass.length > 0 ? (
                     popularClass.map(classIte => (
                         <>
                             <div className="flex justify-center items-center ">
-                                <div className="card w-96 bg-base-100 shadow-xl">
+                                <div className="card w-96 bg-base-100 shadow-xl text-black bg-white">
                                     <figure className="px-10 pt-10">
                                         <img src={classIte.image} alt="Shoes" className="rounded-xl" />
                                     </figure>

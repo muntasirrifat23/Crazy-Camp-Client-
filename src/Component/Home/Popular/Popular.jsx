@@ -66,7 +66,7 @@ const Popular = () => {
 
 
             {/* Extra */}
-            <div className="hero  bg-base-200">
+            <div className="hero bg-white text-black">
   <div className="hero-content flex-col lg:flex-row">
     <img src={extra} className="max-w-sm rounded-lg shadow-2xl" />
     <div>
